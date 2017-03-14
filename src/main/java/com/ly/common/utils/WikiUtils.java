@@ -5,9 +5,7 @@ import com.ly.common.utils.annotation.FieldInfo;
 import org.apache.commons.lang.StringUtils;
 
 import javax.validation.constraints.NotNull;
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
 
@@ -78,59 +76,59 @@ public class WikiUtils {
         return s.indexOf(SEPARATOR) == -1 ? s : StringUtils.substringAfterLast(s, SEPARATOR);
     }
 
-    public static void wikiController(Class clazz) {
-        Method[] mds = clazz.getMethods();
-        String url = "";
-        RequestMapping mapping = (RequestMapping) clazz.getAnnotation(RequestMapping.class);
-        if (mapping != null) {
-            url = mapping.value()[0];
-        }
-        int count = 1;
-        for (Method initBinderMethod : mds) {
-            RequestMapping requestMapping = initBinderMethod.getAnnotation(RequestMapping.class);
-            if (requestMapping == null) {
-                continue;
-            }
-            ApiOperation apiOperation = initBinderMethod.getAnnotation(ApiOperation.class);
-            String name = "";
-            if (apiOperation != null) {
-                name = apiOperation.value();
-            }
-            System.out.println(count++ + " " + name + " " + url + requestMapping.value()[0]
-                    + "\tmethod:"
-                    + (requestMapping.method() != null ? requestMapping.method()[0].name() : ""));
-            Class<?>[] initBinderParams = initBinderMethod.getParameterTypes();
-            Object[] initBinderArgs = new Object[initBinderParams.length];
-            String[] params =
-                    ParameterNameUtils.getMethodParamNames(clazz, initBinderMethod.getName());
-            boolean titlePrint = false;
-            for (int i = 0; i < initBinderArgs.length; i++) {
-                MethodParameter methodParam = new MethodParameter(initBinderMethod, i);
-                Annotation[] paramAnns = methodParam.getParameterAnnotations();
-
-                for (Annotation paramAnn : paramAnns) {
-                    if (RequestParam.class.isInstance(paramAnn)) {
-                        if (!titlePrint) {
-                            System.out.println(
-                                    "字段" + "\t" + "字段名称" + "\t" + "类型" + "\t" + "必填" + "\t" + "备注");
-                            titlePrint = true;
-                        }
-                        RequestParam ann = (RequestParam) paramAnn;
-                        System.out.println(params[i] + "\t" + "" + "\t"
-                                + filterDot(initBinderParams[i].toString()) + "\t" + ann.required()
-                                + "\t" + "\t");
-                    } else if (ModelAttribute.class.isInstance(paramAnn)) {
-                        WikiUtils.wikiParam(initBinderParams[i]);
-                    } else if (RequestBody.class.isInstance(paramAnn)) {
-                        System.out.println("content-type:application/json");
-                        WikiUtils.wikiParam(initBinderParams[i]);
-                    }
-                }
-
-            }
-            System.out.println();
-        }
-    }
+//    public static void wikiController(Class clazz) {
+//        Method[] mds = clazz.getMethods();
+//        String url = "";
+//        RequestMapping mapping = (RequestMapping) clazz.getAnnotation(RequestMapping.class);
+//        if (mapping != null) {
+//            url = mapping.value()[0];
+//        }
+//        int count = 1;
+//        for (Method initBinderMethod : mds) {
+//            RequestMapping requestMapping = initBinderMethod.getAnnotation(RequestMapping.class);
+//            if (requestMapping == null) {
+//                continue;
+//            }
+//            ApiOperation apiOperation = initBinderMethod.getAnnotation(ApiOperation.class);
+//            String name = "";
+//            if (apiOperation != null) {
+//                name = apiOperation.value();
+//            }
+//            System.out.println(count++ + " " + name + " " + url + requestMapping.value()[0]
+//                    + "\tmethod:"
+//                    + (requestMapping.method() != null ? requestMapping.method()[0].name() : ""));
+//            Class<?>[] initBinderParams = initBinderMethod.getParameterTypes();
+//            Object[] initBinderArgs = new Object[initBinderParams.length];
+//            String[] params =
+//                    ParameterNameUtils.getMethodParamNames(clazz, initBinderMethod.getName());
+//            boolean titlePrint = false;
+//            for (int i = 0; i < initBinderArgs.length; i++) {
+//                MethodParameter methodParam = new MethodParameter(initBinderMethod, i);
+//                Annotation[] paramAnns = methodParam.getParameterAnnotations();
+//
+//                for (Annotation paramAnn : paramAnns) {
+//                    if (RequestParam.class.isInstance(paramAnn)) {
+//                        if (!titlePrint) {
+//                            System.out.println(
+//                                    "字段" + "\t" + "字段名称" + "\t" + "类型" + "\t" + "必填" + "\t" + "备注");
+//                            titlePrint = true;
+//                        }
+//                        RequestParam ann = (RequestParam) paramAnn;
+//                        System.out.println(params[i] + "\t" + "" + "\t"
+//                                + filterDot(initBinderParams[i].toString()) + "\t" + ann.required()
+//                                + "\t" + "\t");
+//                    } else if (ModelAttribute.class.isInstance(paramAnn)) {
+//                        WikiUtils.wikiParam(initBinderParams[i]);
+//                    } else if (RequestBody.class.isInstance(paramAnn)) {
+//                        System.out.println("content-type:application/json");
+//                        WikiUtils.wikiParam(initBinderParams[i]);
+//                    }
+//                }
+//
+//            }
+//            System.out.println();
+//        }
+//    }
 
 
 }
