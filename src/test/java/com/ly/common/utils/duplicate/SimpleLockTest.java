@@ -1,4 +1,4 @@
-package com.lianjia.fn.utils.duplicate;
+package com.ly.common.utils.duplicate;
 
 import com.lianjia.fn.common.shiro.RedisManager;
 import com.lianjia.fn.duplicate.SimpleDistributedLock;

@@ -1,4 +1,4 @@
-package com.lianjia.fn.utils.model;
+package com.ly.common.utils.model;
 
 import java.io.Serializable;
 

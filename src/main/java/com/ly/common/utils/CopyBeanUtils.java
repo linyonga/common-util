@@ -1,8 +1,8 @@
-package com.lianjia.fn.utils;
+package com.ly.common.utils;
 
 
 import com.google.common.base.Function;
-import com.lianjia.fn.utils.annotation.FieldInfo;
+import com.ly.common.utils.annotation.FieldInfo;
 import jodd.bean.BeanUtil;
 import jodd.bean.BeanUtilBean;
 import jodd.bean.BeanVisitorImplBase;

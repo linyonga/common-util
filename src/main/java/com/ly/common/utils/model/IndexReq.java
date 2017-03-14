@@ -1,4 +1,4 @@
-package com.lianjia.fn.utils.model;
+package com.ly.common.utils.model;
 
 /**
  * @author: yong.lin

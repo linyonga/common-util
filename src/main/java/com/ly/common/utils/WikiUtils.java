@@ -1,7 +1,7 @@
-package com.lianjia.fn.utils;
+package com.ly.common.utils;
 
 
-import com.lianjia.fn.utils.annotation.FieldInfo;
+import com.ly.common.utils.annotation.FieldInfo;
 import org.apache.commons.lang.StringUtils;
 
 import javax.validation.constraints.NotNull;

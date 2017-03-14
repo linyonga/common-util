@@ -1,4 +1,4 @@
-package com.lianjia.fn.utils.json;
+package com.ly.common.utils.json;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.lianjia.fn.utils;
+package com.ly.common.utils;
 
 
 import com.google.common.base.Joiner;
@@ -8,15 +8,15 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
-import com.lianjia.fn.utils.annotation.Filter;
-import com.lianjia.fn.utils.annotation.Fl;
-import com.lianjia.fn.utils.annotation.Index;
-import com.lianjia.fn.utils.annotation.PageNum;
-import com.lianjia.fn.utils.annotation.PageSize;
-import com.lianjia.fn.utils.annotation.Query;
-import com.lianjia.fn.utils.annotation.Sort;
-import com.lianjia.fn.utils.model.IndexQueryParam;
-import com.lianjia.fn.utils.model.IndexReq;
+import com.ly.common.utils.annotation.Filter;
+import com.ly.common.utils.annotation.Fl;
+import com.ly.common.utils.annotation.Index;
+import com.ly.common.utils.annotation.PageNum;
+import com.ly.common.utils.annotation.PageSize;
+import com.ly.common.utils.annotation.Query;
+import com.ly.common.utils.annotation.Sort;
+import com.ly.common.utils.model.IndexQueryParam;
+import com.ly.common.utils.model.IndexReq;
 import org.apache.commons.lang.StringUtils;
 
 import java.lang.annotation.Annotation;

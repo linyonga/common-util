@@ -1,4 +1,4 @@
-package com.lianjia.fn.utils.annotation;
+package com.ly.common.utils.annotation;
 
 import com.google.common.base.Joiner;
 
