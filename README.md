@@ -15,7 +15,11 @@
 三 增强copy工具
    二次开发开源copy工具
    支持copy对象
-   A.a->B.a
-   A.a->B.b
-   A.a+A.b->B.a
-   method(A.a)->B.a
+  
+  A.a->B.a
+  
+  A.a->B.b
+  
+  A.a+A.b->B.a
+  
+  method(A.a)->B.a
